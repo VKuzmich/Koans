@@ -54,7 +54,7 @@ class AboutHashes < Neo::Koan
     hash = { :one => "uno", :two => "dos" }
     assert_equal 2, hash.keys.size
     assert_equal true, hash.keys.include?(:one)
-    assert_equal true hash.keys.include?(:two)
+    assert_equal true, hash.keys.include?(:two)
     assert_equal Array, hash.keys.class
   end
 
@@ -62,7 +62,7 @@ class AboutHashes < Neo::Koan
     hash = { :one => "uno", :two => "dos" }
     assert_equal 2, hash.values.size
     assert_equal true, hash.values.include?("uno")
-    assert_equal true, hash.values.include?("dos")
+    assert_equal true, hash.keys.include?("dos")
     assert_equal Array, hash.values.class
   end
 
