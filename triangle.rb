@@ -14,7 +14,13 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+  eql_sides_count = [a, b, c].uniq.size
+
+  raise TriangleError if ((a >= b + c) || (b >= a + c) || (c >= b + a))
+
+  return :equilateral if eql_sides_count == 1
+  return :isosceles   if eql_sides_count == 2
+  return :scalene     if eql_sides_count == 3
 end
 
 # Error class used in part 2.  No need to change this code.

@@ -19,7 +19,7 @@ class AboutMethods < Neo::Koan
   # considered to be syntactically invalid).
   def test_sometimes_missing_parentheses_are_ambiguous
     # eval "assert_equal 5, my_global_method 2, 3" # ENABLE CHECK
-    eval "assert_equal 5, my_global_method 2, 3"
+    eval "assert_equal 5, my_global_method(2, 3)"
     #
     # Ruby doesn't know if you mean:
     #

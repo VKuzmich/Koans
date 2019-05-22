@@ -22,8 +22,8 @@ class AboutHashes < Neo::Koan
 
   def test_accessing_hashes_with_fetch
     hash = { :one => "uno" }
-    assert_equal KeyError, hash.fetch(:one)
-    assert_raise(:doesnt_exist) do
+    assert_equal "uno", hash.fetch(:one)
+    assert_raise(KeyError) do
       hash.fetch(:doesnt_exist)
     end
 
@@ -62,7 +62,7 @@ class AboutHashes < Neo::Koan
     hash = { :one => "uno", :two => "dos" }
     assert_equal 2, hash.values.size
     assert_equal true, hash.values.include?("uno")
-    assert_equal true, hash.keys.include?("dos")
+    assert_equal false, hash.keys.include?("dos")
     assert_equal Array, hash.values.class
   end
 
@@ -100,7 +100,7 @@ class AboutHashes < Neo::Koan
     assert_equal ["uno", "dos"], hash[:two]
     assert_equal ["uno", "dos"], hash[:three]
 
-    assert_equal __, hash[:one].object_id == hash[:two].object_id
+    assert_equal true, hash[:one].object_id == hash[:two].object_id
   end
 
   def test_default_value_with_block
