@@ -14,13 +14,21 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  eql_sides_count = [a, b, c].uniq.size
+  if a <= 0 || b <= 0 || c <= 0
+    raise TriangleError, "Each side of triangle must be longer then 0"
+  elsif (a + b <= c) || (a + c <= b) || (b + c <= a)
+    raise TriangleError,
+          "Length of each triangle's side must be greater than sum of two other sides' length"
+  end
 
-  raise TriangleError if ((a >= b + c) || (b >= a + c) || (c >= b + a))
+  if a == b && a == c
+    :equilateral
+  elsif a == b || b == c || a == c
+    :isosceles
+  else
+    :scalene
+  end
 
-  return :equilateral if eql_sides_count == 1
-  return :isosceles   if eql_sides_count == 2
-  return :scalene     if eql_sides_count == 3
 end
 
 # Error class used in part 2.  No need to change this code.
